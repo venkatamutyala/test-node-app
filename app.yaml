@@ -1,3 +1,4 @@
-runtime: nodejs16
-service: test-node-app
-main: node index.js 
+runtime: custom
+env: flex
+service: tacos-first
+instance_class: F2
