@@ -2,14 +2,11 @@ FROM node:17
 
 WORKDIR /app
 
-COPY package.json .
+ADD . /app
 
 ARG NODE_ENV
 RUN npm install
 
-COPY . ./
-
-EXPOSE $PORT
 
 CMD ["node", "index.js"]
 
