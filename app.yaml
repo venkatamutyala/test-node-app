@@ -1,4 +1,3 @@
-runtime: custom
-env: flex
+runtime: nodejs16
 service: tacos-first
-instance_class: F2
+main: node index.js 
