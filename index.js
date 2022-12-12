@@ -4,6 +4,10 @@ const express = require("express");
 
 const app = express();
 
+app.get('/error/:code', function(req, res) {
+  const errorCode = req.params.code;
+  res.status(errorCode).send({ error: `Error with code ${errorCode}` });
+});
 
 
 app.get('/slow-response', (req, res) => {
