@@ -6,7 +6,25 @@ const app = express();
 
 
 
+app.get('/slow-response', (req, res) => {
+  // Get the number of seconds to pause from the query parameters
+  const duration = req.query.duration;
 
+  // Pause the execution of the endpoint for the specified number of seconds
+  setTimeout(() => {
+    // Send the response after the specified number of seconds
+    res.send('Slow response');
+  }, duration);
+});
+
+app.get('/highcpu', (req, res) => {
+  let duration = Number(req.query.duration) || 5000 // default to 5000 milliseconds
+  let start = Date.now()
+  while(Date.now() - start < duration) {
+    // generate high CPU load for the specified duration
+  }
+  res.send(`High CPU load generated for ${duration} milliseconds`)
+})
 
 
 app.get("/", (req, res) => {
